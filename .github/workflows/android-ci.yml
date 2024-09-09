@@ -43,6 +43,12 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
+      - name: Create fastlane directory
+        run: mkdir -p ./fastlane
+
+      - name: Check Firebase service credentials
+        run: echo "$FIREBASE_SERVICE_CREDENTIALS_JSON"
+
       - name: Set up Firebase service credentials
         env:
           FIREBASE_SERVICE_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_CREDENTIALS_JSON }}
