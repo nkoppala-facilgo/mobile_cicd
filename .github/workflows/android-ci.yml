@@ -58,4 +58,4 @@ jobs:
       - name: Deploy to Firebase
         env:
           FIREBASE_SERVICE_CREDENTIALS_JSON: './fastlane/firebase_credentials.json'
-        run: bundle exec fastlane deploy_android_to_firebase version:"1" release_notes:"Inspection module added"
+        run: bundle exec fastlane deploy_android_to_firebase
