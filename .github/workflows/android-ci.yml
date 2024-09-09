@@ -38,13 +38,21 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: '3.3'
 
       - name: Install Bundler
         run: gem install bundler
 
       - name: Install Fastlane and dependencies
         run: cd android && bundle install
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.20'
+
+      - name: Install Node.js dependencies
+        run: npm install
 
       - name: Check Firebase service credentials
         run: echo "$FIREBASE_SERVICE_CREDENTIALS_JSON"
