@@ -44,10 +44,7 @@ jobs:
         run: gem install bundler
 
       - name: Install Fastlane and dependencies
-        run: bundle install
-
-      - name: Create fastlane directory
-        run: mkdir -p ./fastlane
+        run: cd android && bundle install
 
       - name: Check Firebase service credentials
         run: echo "$FIREBASE_SERVICE_CREDENTIALS_JSON"
@@ -56,9 +53,9 @@ jobs:
         env:
           FIREBASE_SERVICE_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_CREDENTIALS_JSON }}
         run: |
-          echo "$FIREBASE_SERVICE_CREDENTIALS_JSON" | base64 --decode > ./fastlane/firebase_credentials.json
+          echo "$FIREBASE_SERVICE_CREDENTIALS_JSON" | base64 --decode > ./android/fastlane/firebase_credentials.json
 
       - name: Deploy to Firebase
         env:
-          FIREBASE_SERVICE_CREDENTIALS_JSON: './fastlane/firebase_credentials.json'
-        run: bundle exec fastlane deploy_android_to_firebase
+          FIREBASE_SERVICE_CREDENTIALS_JSON: './android/fastlane/firebase_credentials.json'
+        run: cd android && bundle exec fastlane deploy_android_to_firebase
