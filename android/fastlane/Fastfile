@@ -22,7 +22,7 @@ platform :android do
       task: "app:assembleRelease"
     )
 
-    File.open('./android/fastlane/firebase_credentials.json', 'w') do |file|
+    File.open('fastlane/firebase_credentials.json', 'w') do |file|
       file.write(ENV['FIREBASE_SERVICE_CREDENTIALS_JSON'])
     end
 
