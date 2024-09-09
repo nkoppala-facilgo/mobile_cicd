@@ -1,0 +1,42 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Deploy Android app to Firebase"
+  lane :deploy_android_to_firebase do |options|
+    gradle(
+      task: "app:assembleRelease"
+    )
+
+    # Use the version name and release notes passed from the terminal
+    version = options[:version]
+    release_notes = options[:release_notes] || "No release notes provided."
+
+    firebase_app_distribution(
+      app: '1:774429365079:android:b1d0707c8e295adc9fe412',
+      service_credentials_file: ENV['FIREBASE_SERVICE_CREDENTIALS_JSON'],
+      apk_path: "app/build/outputs/apk/release/app-release.apk",
+      release_notes: "This is the release note for version #{version}: #{release_notes}",
+      groups: "qa-team"
+    )
+
+    # Clean up the build directory
+    gradle(
+      task: "clean"
+    )
+  end
+end

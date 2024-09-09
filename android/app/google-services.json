@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774429365079",
+    "project_id": "mobile-ci-932a5",
+    "storage_bucket": "mobile-ci-932a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774429365079:android:b1d0707c8e295adc9fe412",
+        "android_client_info": {
+          "package_name": "com.mobilecicd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC49PPN5ar0kxtze0X_Yk9qlULHGDvF7Fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
