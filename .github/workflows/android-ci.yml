@@ -16,11 +16,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: List directory contents
+        run: ls -la
+
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: 11
-          distribution: 'adopt' # Specify the distribution here
+          distribution: 'adopt'
           java-package: jdk
           check-latest: false
 
@@ -31,9 +34,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-      - name: Build APK
-        run: ./gradlew app:assembleRelease
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
