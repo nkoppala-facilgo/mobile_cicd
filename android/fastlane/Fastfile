@@ -21,6 +21,10 @@ platform :android do
     gradle(
       task: "app:assembleRelease"
     )
+    # Write the service credentials to a file
+    File.open('./android/fastlane/firebase_credentials.json', 'w') do |file|
+      file.write(ENV['FIREBASE_SERVICE_CREDENTIALS_JSON'])
+    end
 
     firebase_app_distribution(
       app: '1:774429365079:android:b1d0707c8e295adc9fe412',
