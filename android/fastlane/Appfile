@@ -1,2 +1,2 @@
 json_key_file("facilgo-mobile-pmc.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
-package_name("com.mobilecicd")
+package_name("com.mobilecicd") # e.g. com.krausefx.app

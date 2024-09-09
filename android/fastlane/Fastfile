@@ -22,16 +22,10 @@ platform :android do
       task: "app:assembleRelease"
     )
 
-    # Use the version name and release notes passed from the terminal
-    version = options[:version]
-    release_notes = options[:release_notes] || "No release notes provided."
-
     firebase_app_distribution(
       app: '1:774429365079:android:b1d0707c8e295adc9fe412',
       service_credentials_file: ENV['FIREBASE_SERVICE_CREDENTIALS_JSON'],
-      apk_path: "app/build/outputs/apk/release/app-release.apk",
-      release_notes: "This is the release note for version #{version}: #{release_notes}",
-      groups: "qa-team"
+      apk_path: "app/build/outputs/apk/release/app-release.apk"
     )
 
     # Clean up the build directory
