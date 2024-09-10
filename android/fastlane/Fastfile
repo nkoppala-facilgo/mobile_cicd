@@ -24,7 +24,7 @@ platform :android do
 
     firebase_app_distribution(
       app: '1:774429365079:android:b1d0707c8e295adc9fe412',
-      service_credentials_file: 'android/fastlane/firebase_credentials.json',
+      service_credentials_file: 'fastlane/firebase_credentials.json',
       apk_path: "app/build/outputs/apk/release/app-release.apk"
     )
 
