@@ -54,9 +54,6 @@ jobs:
       - name: Install Node.js dependencies
         run: yarn install
 
-      - name: Check Firebase service credentials
-        run: echo "$FIREBASE_SERVICE_CREDENTIALS_JSON"
-
       - name: Decode and save Firebase service credentials
         env:
           FIREBASE_SERVICE_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_CREDENTIALS_JSON }}
